@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog'
+    'blog',
+  #  'dj_pagination',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+  #  'dj_pagination.middleware.PaginationMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -63,6 +65,11 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+               # 'django.core.context_processors.auth',
+               # 'django.core.context_processors.debug',
+               # 'django.core.context_processors.i18n',
+               # 'django.core.context_processors.media',
+               # 'django.core.context_processors.request',
             ],
         },
     },

@@ -1,6 +1,7 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 
+
 <html>
     <head>
         <title>Roger Blog</title>
@@ -8,6 +9,8 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
         <link href="//fonts.googleapis.com/css?family=Stylish&display=swap" rel="stylesheet">
+        <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+        <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <div class="page-header">
@@ -24,14 +27,17 @@
                 <div class="col-md-8">
                     {% block content %}
                         {% for post in posts %}
-                            <div class="post">
+                            <div class="post">       
+                                <img src="{{ post.img }}" />            
+                                <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>                                                  
                                 <div class="date">
-                                    <p>published:{{ post.published_date }}</p>
-                                </div>
-                                <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>                              
-                                <p>{{ post.text|linebreaksbr }}</p>   
-                                <img src="{{ post.img }}" />           
+                                        <p>published:{{ post.published_date }}</p>
+                                    </div>
+                                <div class="preview">
+                                    <p>{{ post.text|linebreaksbr }}</p>   
+                                </div>                    
                             </div>
+                            <hr>
                         {% endfor %}
                      {% endblock %}
                 </div>
@@ -48,6 +54,7 @@
                     <h3>
                         ABOUT ME
                     </h3>
+                    <HR width="250px" size="7">
                     <div class="short-about">
                         <img src="https://cdn.shopify.com/s/files/1/0004/4063/1357/products/Smile.jpg?v=1550265507" alt="selfie" width="100px" height="100px">
                         <p>
@@ -64,8 +71,90 @@
                 </section>
                 {% endblock %}
                 </div>
+
+                <!-- Pager 
+                <div class="pager">
+                    {% block pager %}
+                         <ul class="pagination">
+                         <li>
+                             <a href="/post/index/?page={{ posts.previous_page_number }}">First Page</a>                        
+                         </li>
+                         {% if posts.has_previous %}
+                            <li><a href ="/blog/post_list/?page={{ posts.previous_page_number }}">Previous Page</a></li>
+                         {% endif %}
+
+                         {% for num in posts.paginator.page_range %}
+                         <li><a href="/blog/post_list/?page={{ num }}">{{ num }}</a></li>
+                         {% endfor %}
+
+                         {% if posts.has_next %}
+                            <li><a href ="/blog/post_list/?page={{ posts.next_page_number }}">Next Page</a></li>
+                         {% endif %}
+                         <li><a href="/blog/post_list/?page={{ posts.paginator.num_pages }}">Last Page</a></li>
+                         </ul> 
+                        {% for page_number in posts.paginator.page_range %}
+                            {% ifequal page_number posts.number %}
+                                {{ page_number}}
+                            {% else %}
+                                <a href="?page={{ page_number }}">{{ page_number }}</a>
+                            {% endifequal %}
+                        {% endfor %}
+                    {% endblock %}
+                </div> -->
             </div>
         </div>
+        <footer>
+            {% block footer %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <!-- SNS Link -->
+                        <ul class="list-inline text-center">
+                            <li>
+                                <a href="https://twitter.com">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x" style=color:black></i>
+                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                        
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://instagram.com">
+                                    <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x" style=color:black></i>
+                                            <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                </a>
+                            </li>
+                            <li>
+                                    <a href="https://github.com/tulixxelivia/roger-blog">
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x" style=color:black></i>
+                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                            </li>
+                            <li>
+                                    <a href="https://facebook.com">
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x" style=color:black></i>
+                                            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                            </li>
+                        </ul>
+                        <p class="copyright text-muted">
+                            Copyright © Roger Blog 2019
+                            <br>
+                            Powered by
+                            <a href="http://127.0.0.1:8000">Roger Blog</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endblock %}
+        </footer>
         
     </body>
 
