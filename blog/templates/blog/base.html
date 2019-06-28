@@ -1,5 +1,6 @@
 {% load static %}
-
+{% load pagination_tags %}
+{% autopaginate object_list 2 %}
 <html>
     <head>
         <title>Roger Blog</title>
@@ -32,11 +33,11 @@
                     {% block sidebar %}
                     {% endblock %}
                 </div>
-                <!-- Pager
+                <!-- Pager -->
                 <div class="Pager">
                     {% block pager %}
                     {% endblock %}
-                </div>-->
+                </div>
            </div>
        </div>
        <footer>
@@ -47,3 +48,5 @@
     </body>
     
 </html>
+
+{% paginate %}

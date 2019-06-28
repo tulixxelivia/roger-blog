@@ -1,5 +1,7 @@
 {% extends 'blog/base.html' %}
 {% load static %}
+{% load pagination_tags %}
+{% autopaginate object_list 2 %}
 
 
 <html>
@@ -72,7 +74,7 @@
                 {% endblock %}
                 </div>
 
-                <!-- Pager 
+                <!-- Pager -->
                 <div class="pager">
                     {% block pager %}
                          <ul class="pagination">
@@ -100,7 +102,7 @@
                             {% endifequal %}
                         {% endfor %}
                     {% endblock %}
-                </div> -->
+                </div> 
             </div>
         </div>
         <footer>
@@ -159,3 +161,6 @@
     </body>
 
 </html>
+
+
+{% paginate %}
