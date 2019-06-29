@@ -1,7 +1,6 @@
 {% extends 'blog/base.html' %}
 {% load static %}
-{% load pagination_tags %}
-{% autopaginate object_list 2 %}
+
 
 
 <html>
@@ -15,31 +14,46 @@
         <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <div class="page-header">
+        <div class="page-header" style="background-image: url('static/header.jpg')">
             <h1><a href="/">Roger Blog</a></h1>
         </div>
-        <div class=image>  
-            <img src="https://www.sketchappsources.com/resources/source-image/detailed-world-map.png" 
-            width="1350" height="500"
-            alt="World Map"> 
-        </div>
+        <section style="margin-bottom: 50px;" class="map">  
+            {% block map %}
+            <a href="/" title= "Where I have already been" data-rapid_p="1">
+            <img src="static/WorldMap.jpg" 
+            width="1340" height="640"
+            alt="World Map" scale="0"/> </a>
+            {% endblock %}
+        </section>
         <div class="content container">
             <div class="row">
                 <!-- PostList Container -->
                 <div class="col-md-8">
                     {% block content %}
-                        {% for post in posts %}
-                            <div class="post">       
-                                <img src="{{ post.img }}" />            
+                        {% for post in posts %}                           
+                        <div style="float:left" class="post">                
                                 <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>                                                  
-                                <div class="date">
-                                        <p>published:{{ post.published_date }}</p>
-                                    </div>
+                                <div style="display:inline-block;" class="date">
+                                    <p>published:{{ post.published_date }}</p>
+                                </div>
+                                <div style="display: inline-block; margin-left: 10px; color: #828282" class="location">
+                                    <p>Location:{{ post.location }}</p>
+                                </div>
                                 <div class="preview">
-                                    <p>{{ post.text|linebreaksbr }}</p>   
-                                </div>                    
-                            </div>
-                            <hr>
+                                    <p>{{ post.text }}</p>   
+                                </div>               
+                        </div>
+                      
+                        <div style="float:right; margin-left: 10px" class="image">
+                            <img src="/media/{{ post.img }}" height="200" width="380"/>    
+                        </div>
+                        <div style="clear:left" class="after-post">
+                        </div>
+                        <div style="clear:right" class="after-image">
+                        </div>
+                        <hr>
+                        
+                      
                         {% endfor %}
                      {% endblock %}
                 </div>
@@ -65,7 +79,7 @@
                             Age:<br>
                             Gender: Male <br>
                             Hobby: <br>
-                            Occupation: Photographer<br>
+                            Job: Photographer<br>
                             Motto:<br>
                             </h4>
                         </p>
@@ -74,7 +88,7 @@
                 {% endblock %}
                 </div>
 
-                <!-- Pager -->
+                <!-- Pager 
                 <div class="pager">
                     {% block pager %}
                          <ul class="pagination">
@@ -102,7 +116,7 @@
                             {% endifequal %}
                         {% endfor %}
                     {% endblock %}
-                </div> 
+                </div>  -->
             </div>
         </div>
         <footer>
@@ -163,4 +177,3 @@
 </html>
 
 
-{% paginate %}

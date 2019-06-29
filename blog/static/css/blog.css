@@ -1,5 +1,5 @@
 h1 a, h2 a{
-    color : #000000;
+    color : #35c43d;
     font-family: "Stylish", cursive;
 }
 
@@ -26,7 +26,6 @@ body{
     padding-left: 150px;
 }
 .page-header {
-    background-color:#000000;
     margin-top:0;
     padding: 20px 20px 20px 40px;
 }
@@ -41,12 +40,11 @@ body{
 }
 
 
-h1, h2{
+h1, h2 {
     font-family:'Stylish', cursive;
 }
 
-
-.date{
+.date {
     color: #828282;
 }
 

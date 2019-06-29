@@ -3,16 +3,24 @@
 
 {% block content %}
     <div class = "post">
-            {% if post.published_date %}
-            <div class="date">
-                {{ post.published_date }}
-            </div>
-        {% endif %}
         {% if user.is_authenticated %}
-            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a class="btn btn-default" style="float:right" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         {% endif %}
         <h2>{{ post.title }}</h2>
+        {% if post.published_date %}
+            <div style="display: inline-block" class="date">
+                {{ post.published_date }}          
+            </div>
+        {% endif %}
+
+        {% if post.location %}
+            <div style="display: inline-block; color: #828282" class="location">
+                {{ post.location }}
+            </div>
+        {% endif %}
+        <br>
         <p>{{ post.text|linebreaksbr }}</p>   
-        <img src= "{{ post.img }}"/>
+        <br>
+        <img src= "/media/{{ post.img }}" width="750"/>
     </div>
 {% endblock %}
