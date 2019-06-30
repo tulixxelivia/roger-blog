@@ -19,10 +19,22 @@
         </div>
         <section style="margin-bottom: 50px;" class="map">  
             {% block map %}
-            <a href="/" title= "Where I have already been" data-rapid_p="1">
-            <img src="static/WorldMap.jpg" 
+            <a title= "Where I have already been" data-rapid_p="1">
+            <img src="static/WorldMap.jpg"  usemap="#worldmap"
             width="1340" height="640"
             alt="World Map" scale="0"/> </a>
+            <map name="worldmap">
+                <area shape="circle" coords="422, 280, 10", alt="Mark NY", href="//127.0.0.1:8000/post/10">
+                <area shape="circle" coords="510, 460, 10", alt="Mark Rio", href="//127.0.0.1:8000/post/5">
+                <area shape="circle" coords="624, 328, 10", alt="Mark Morocco", href="//127.0.0.1:8000/post/8">
+                <area shape="circle" coords="646, 249, 10", alt="Mark London", href="//127.0.0.1:8000/post/4">
+                <area shape="circle" coords="686, 248, 10", alt="Mark Berlin", href="//127.0.0.1:8000/post/11">
+                <area shape="circle" coords="698, 283, 10", alt="Mark Rome", href="//127.0.0.1:8000/post/2">
+                <area shape="circle" coords="1013, 288, 10", alt="Mark Beijing", href="//127.0.0.1:8000/post/9">
+                <area shape="circle" coords="1098, 305, 10", alt="Mark Tokyo", href="//127.0.0.1:8000/post/6">
+                <area shape="circle" coords="1110, 506, 10", alt="Mark Moulbourne", href="//127.0.0.1:8000/post/7">
+   
+            </map>
             {% endblock %}
         </section>
         <div class="content container">
