@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
     </head>
     <body>
-       <div class="page-header" style="background-image: url('static/header.jpg')" >
+       <div class="page-header" style="background-image: url('../../static/header.jpg')" >
             <h1><a href="/">Roger Blog</a></h1>
             {% if user.is_authenticated %}
                 <a href ="{% url 'post_new' %}" title="Click to add new Blog" data-rapid_p="1"  class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>

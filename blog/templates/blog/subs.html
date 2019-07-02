@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <h5>Subcribe the Roger Blog! You will get the lastest news!</h5>
+    <h5>Subcribe to the Roger Blog! You will get the lastest news!</h5>
     <form method="POST" class="subscribe-form">
         {% csrf_token %}
         {{ form.as_p }}

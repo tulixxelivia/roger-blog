@@ -21,7 +21,7 @@ class Post(models.Model):
 
 class Subscription(models.Model):
     name = models.CharField(verbose_name = 'Name', max_length = 256, blank = True, null=True)
-    email = models.EmailField(verbose_name ='Email Address')
+    email = models.EmailField(verbose_name ='Email')
 
     def __str__(self):
         return self.email

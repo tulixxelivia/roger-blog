@@ -22,7 +22,7 @@ h4{
 
 h5{
     color:#cf4b4b;
-    font-size: 48px;
+    font-size: 30px;
     text-align:center;
     font-family: 'Righteous', cursive;
 }
@@ -63,8 +63,14 @@ h1, h2 {
 }
 
 .subscribe-form textarea, .subscribe-form input{
-    width:100%;
+    margin-left:40px;
+    margin-top: 5px;
 }
+
+.subscribe-form {
+    margin-top: 30px;
+}
+
 
 .post-form textarea, .post-form input{
     width:100%;
