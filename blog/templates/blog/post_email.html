@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Subscription</title>
+    </head>
+    <body>
+        <div style="width: 210px; margin:0 auto">
+            <from method="post">
+                {% csrf_token %}
+                <label for="name">Name: (optional) </label>
+                <input type="text" name="name" style="width:150px" ><br><br>
+                <label for="email">Email: </label>
+                <input type="email" email="email" style="width:150px"><br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="reset">&nbsp;&nbsp;&nbsp;<input type="submit">
+            </from>
+            {% if result %}
+                <p style = "text-align: center; color:rgb(30, 52, 71)">Thank you for your subscription!</p>
+            {% endif %}
+        </div>
+    </body>
+</html>

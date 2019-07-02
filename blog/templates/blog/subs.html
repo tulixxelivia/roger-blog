@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h5>Subcribe the Roger Blog! You will get the lastest news!</h5>
+    <form method="POST" class="subscribe-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Submit</button>
+    </form>
+    {% if messages %}
+    <script>
+        {% for msg in messages %}
+            alert("Thank you for your Subscription!")   
+        {% endfor %} 
+    </script>
+    {% endif %}
+    
+{% endblock %}

@@ -1,8 +1,6 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 
-
-
 <html>
     <head>
         <title>Roger Blog</title>
@@ -12,6 +10,7 @@
         <link href="//fonts.googleapis.com/css?family=Stylish&display=swap" rel="stylesheet">
         <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
         <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
     </head>
     <body>
         <div class="page-header" style="background-image: url('static/header.jpg')">
@@ -20,20 +19,19 @@
         <section style="margin-bottom: 50px;" class="map">  
             {% block map %}
             <a title= "Where I have already been" data-rapid_p="1">
-            <img src="static/WorldMap.jpg"  usemap="#worldmap"
-            width="1340" height="640"
-            alt="World Map" scale="0"/> </a>
+            <img src="static/WorldMap.jpg"  usemap="#worldmap" 
+            width="100%" height="640"
+            alt="World Map" scale="0" /> </a>
             <map name="worldmap">
-                <area shape="circle" coords="422, 280, 10", alt="Mark NY", href="//127.0.0.1:8000/post/10">
-                <area shape="circle" coords="510, 460, 10", alt="Mark Rio", href="//127.0.0.1:8000/post/5">
-                <area shape="circle" coords="624, 328, 10", alt="Mark Morocco", href="//127.0.0.1:8000/post/8">
-                <area shape="circle" coords="646, 249, 10", alt="Mark London", href="//127.0.0.1:8000/post/4">
-                <area shape="circle" coords="686, 248, 10", alt="Mark Berlin", href="//127.0.0.1:8000/post/11">
-                <area shape="circle" coords="698, 283, 10", alt="Mark Rome", href="//127.0.0.1:8000/post/2">
-                <area shape="circle" coords="1013, 288, 10", alt="Mark Beijing", href="//127.0.0.1:8000/post/9">
-                <area shape="circle" coords="1098, 305, 10", alt="Mark Tokyo", href="//127.0.0.1:8000/post/6">
-                <area shape="circle" coords="1110, 506, 10", alt="Mark Moulbourne", href="//127.0.0.1:8000/post/7">
-   
+                <area title="New York" shape="circle" coords="422, 280, 10", alt="Mark NY", href="//127.0.0.1:8000/post/10">
+                <area title="Rio de Janeiro" shape="circle" coords="510, 460, 10", alt="Mark Rio", href="//127.0.0.1:8000/post/5">
+                <area title="Casablanca" shape="circle" coords="624, 328, 10", alt="Mark Morocco", href="//127.0.0.1:8000/post/8">
+                <area title="London" shape="circle" coords="646, 249, 10", alt="Mark London", href="//127.0.0.1:8000/post/4">
+                <area title="Berlin" shape="circle" coords="686, 248, 10", alt="Mark Berlin", href="//127.0.0.1:8000/post/11">
+                <area title="Rome" shape="circle" coords="698, 283, 10", alt="Mark Rome", href="//127.0.0.1:8000/post/2">
+                <area title="Beijing" shape="circle" coords="1020, 292, 10", alt="Mark Beijing", href="//127.0.0.1:8000/post/9">
+                <area title="Tokyo" shape="circle" coords="1100, 305, 10", alt="Mark Tokyo", href="//127.0.0.1:8000/post/6">
+                <area title="Melbourne" shape="circle" coords="1120, 510, 10", alt="Mark Melbourne", href="//127.0.0.1:8000/post/7">
             </map>
             {% endblock %}
         </section>
@@ -42,7 +40,8 @@
                 <!-- PostList Container -->
                 <div class="col-md-8">
                     {% block content %}
-                        {% for post in posts %}                           
+                        {% for post in posts %}  
+                        <hr>                         
                         <div style="float:left" class="post">                
                                 <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>                                                  
                                 <div style="display:inline-block;" class="date">
@@ -51,7 +50,7 @@
                                 <div style="display: inline-block; margin-left: 10px; color: #828282" class="location">
                                     <p>Location:{{ post.location }}</p>
                                 </div>
-                                <div class="preview">
+                                <div style="color: #504f4f" class="preview">
                                     <p>{{ post.text }}</p>   
                                 </div>               
                         </div>
@@ -62,10 +61,7 @@
                         <div style="clear:left" class="after-post">
                         </div>
                         <div style="clear:right" class="after-image">
-                        </div>
-                        <hr>
-                        
-                      
+                        </div>  
                         {% endfor %}
                      {% endblock %}
                 </div>
@@ -75,7 +71,7 @@
                 Col-lg-3 col-lg-offset-0
                 col-md-3 col-md-offset-0
                 col-sm-12
-                col-cs-12
+                col-cs-12 
                 sidebar-container">
                 {% block sidebar %}
                 <section class="visible-md visible-lg">
@@ -137,6 +133,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                         <!-- SNS Link -->
+                        <hr>
                         <ul class="list-inline text-center">
                             <li>
                                 <a href="https://twitter.com">

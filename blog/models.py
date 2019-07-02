@@ -18,3 +18,11 @@ class Post(models.Model):
     
     def __str__(self):
         return self.title
+
+class Subscription(models.Model):
+    name = models.CharField(verbose_name = 'Name', max_length = 256, blank = True, null=True)
+    email = models.EmailField(verbose_name ='Email Address')
+
+    def __str__(self):
+        return self.email
+

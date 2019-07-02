@@ -20,6 +20,13 @@ h4{
     line-height: 25px;
 }
 
+h5{
+    color:#cf4b4b;
+    font-size: 48px;
+    text-align:center;
+    font-family: 'Righteous', cursive;
+}
+
 body{
     padding-left: 15px;
 }
@@ -53,6 +60,10 @@ h1, h2 {
 
 .save{
     float: right;
+}
+
+.subscribe-form textarea, .subscribe-form input{
+    width:100%;
 }
 
 .post-form textarea, .post-form input{
