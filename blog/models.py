@@ -20,9 +20,16 @@ class Post(models.Model):
         return self.title
 
 class Subscription(models.Model):
-    name = models.CharField(verbose_name = 'Name', max_length = 256, blank = True, null=True)
-    email = models.EmailField(verbose_name ='Email')
+    name = models.CharField(verbose_name = 'Name (optional) ', max_length = 256, blank = True, null=True)
+    email = models.EmailField(verbose_name ='Email Addresse ')
 
     def __str__(self):
         return self.email
 
+class Events(models.Model):
+    event_title = models.CharField(verbose_name = 'Title', max_length = 256)
+    event_location = models.CharField(verbose_name = 'Location', max_length = 200)
+    event_description = models.TextField(verbose_name = 'Description')
+
+    def __str__(self):
+        return self.event_title

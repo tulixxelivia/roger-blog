@@ -5,6 +5,8 @@ from .forms import PostForm
 from django.shortcuts import redirect
 from .models import Subscription
 from .forms import SubsForm
+from .models import Events
+from .forms import EventForm
 from django.contrib import messages
 #from django.core.paginator import Paginator
 #from django.core.paginator import EmptyPage
@@ -50,7 +52,7 @@ def post_edit(request,pk):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            post.img=request.FILES.get('img')      
+            post.img=request.FILES.get('img')     
             post.published_date = timezone.now()
             post.save()
             return redirect('post_detail', pk=post.pk)
@@ -68,3 +70,18 @@ def subscription_subs(request):
         else:
                 form = SubsForm()
         return render(request, 'blog/subs.html',{'form': form})
+
+def event_list(request):
+        events= Events.objects.filter(event_date__lte=timezone.now()).order_by('-event_date')
+        return render(request, 'blog/event_list.html', {'events':events})
+
+def event_new(request):
+    if request.method == "POST":
+        form = EventForm(request.POST)
+        if form.is_valid():
+            event = form.save(commit=False)
+            event.save()
+            return redirect('event_list')
+    else:
+            form = EventForm()
+    return render(request, 'blog/event_new.html', {'form': form})

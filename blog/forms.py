@@ -1,6 +1,7 @@
 from django import forms
 from .models import Post
 from .models import Subscription
+from .models import Events
 
 class PostForm(forms.ModelForm):
     class Meta:
@@ -10,3 +11,8 @@ class SubsForm(forms.ModelForm):
     class Meta:
         model = Subscription
         fields = ('name','email',)
+class EventForm(forms.ModelForm):
+    class Meta:
+        model = Events
+        fields = ('event_title','event_location','event_description',)
+        

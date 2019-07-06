@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Add Events</title>
+        <link rel = "stylesheet" href = "//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+        $( function(){
+            $( "#datepicker" ).datepicker();
+        })
+        </script>
+    </head>
+    <body>
+            <h2>New Event</h2>
+            <form method="POST" class="event-form" >
+                {% csrf_token %}
+                <p>Date: <input type="text" id="datepicker"></p>
+                {{ form.as_p }}
+                <button type="reset" class="reset btn btn-default">Reset</button>
+                <button type="submit" class="save btn btn-default">Save</button>
+            </form>
+    </body>
+</html>
