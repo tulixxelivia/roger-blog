@@ -72,7 +72,7 @@ def subscription_subs(request):
         return render(request, 'blog/subs.html',{'form': form})
 
 def event_list(request):
-        events= Events.objects.filter(event_date__lte=timezone.now()).order_by('-event_date')
+        events= Events.objects.filter(event_date__gte=timezone.now()).order_by('event_date')
         return render(request, 'blog/event_list.html', {'events':events})
 
 def event_new(request):

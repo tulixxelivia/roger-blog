@@ -9,10 +9,11 @@
         <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
         <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One|Rajdhani|Tajawal&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Rock+Salt&display=swap" rel="stylesheet"></head>
     <body>
         <div class="page-header" style="margin-bottom: 0;background-image: url('../../static/header.jpg')" >
-            <h1>Roger Blog</h1>
+            <h1><a href="/">Roger Blog</a></h1>
             {% if user.is_authenticated %}
             <a href ="{% url 'event_new' %}" title="Click to add new Events" data-rapid_p="1"  class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
             {% endif %}
@@ -22,21 +23,22 @@
                 <!-- Event List Container-->
                 <section id ="primary" class="content_area wrap">
                     <header class="page-header">
-                        <h1 style="color:#3a0a0a" class="title">Events List</h1>
+                        <p style="color:#4d3108; font-family: 'Rubik Mono One', sans-serif; font-size: 36px;" class="title">Events List</p>
                     </header>
                     <main id="main" class="site-main" role="main">
                         {% for event in events %}
                         <div class="events">
-                            <h1><a style="font-family:'Stylish', cursive;">{{ event.event_title }}</a></h1>                                                  
-                            <div style="display:inline-block;" class="eventdate">
-                                <p>published:{{ event.event_date }}</p>
+                            <h1 style="font-family:'Rajdhani', sans-serif;">{{ event.event_title }}</h1>                                                  
+                            <div style="display:inline-block; color: #828282;font-family: 'Tajawal', sans-serif;font-size:15px;" class="eventdate">
+                                <div>Date:&nbsp;{{ event.event_date }}</div>
                             </div>
-                            <div style="display: inline-block; margin-left: 10px; color: #828282" class="eventlocation">
-                                <p>Location:{{ event.event_location }}</p>
+                            <div style="display: inline-block; margin-left: 10px; color: #828282;font-family: 'Tajawal', sans-serif;font-size:15px;" class="eventlocation">
+                                <p>Location:&nbsp;{{ event.event_location }}</p>
                             </div>
-                            <div style="color: #504f4f" class="description">                                    
-                                <p>{{ event.description }}</p>   
+                            <div style="color: #504f4f;font-family: 'Tajawal', sans-serif; font-size: 18px;" class="description">                                    
+                                <p>{{ event.event_description }}</p>   
                             </div>               
+                            <hr>
                             {% endfor %}
                         </div>
                     </main>

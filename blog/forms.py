@@ -14,5 +14,6 @@ class SubsForm(forms.ModelForm):
 class EventForm(forms.ModelForm):
     class Meta:
         model = Events
-        fields = ('event_title','event_location','event_description',)
-        
+        fields = ('event_title','event_date','event_location','event_description',)
+      
+       

@@ -7,17 +7,16 @@
         <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script>
-        $( function(){
-            $( "#datepicker" ).datepicker();
-        })
+        $(function(){
+            $( "#id_event_date" ).datepicker({changeYear:true,changeMonth:true,dateFormat:"dd.mm.yy"});
+        });
         </script>
     </head>
     <body>
             <h2>New Event</h2>
             <form method="POST" class="event-form" >
                 {% csrf_token %}
-                <p>Date: <input type="text" id="datepicker"></p>
-                {{ form.as_p }}
+                <table>{{ form.as_p }}</table>
                 <button type="reset" class="reset btn btn-default">Reset</button>
                 <button type="submit" class="save btn btn-default">Save</button>
             </form>
